@@ -1,6 +1,7 @@
 name: Sync Repository A to Repository B
 
 on:
+ push:
  repository_dispatch:
     types:
       - features
