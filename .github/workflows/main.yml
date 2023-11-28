@@ -1,8 +1,8 @@
 name: Sync Repository A to Repository B
 
 on:
- push:
-    branches:
+ repository_dispatch:
+    types:
       - features
 
 jobs:
@@ -45,8 +45,11 @@ jobs:
         git fetch source
         echo "Now pulling the features source branch from source"
         git pull --allow-unrelated-histories  source features
+        
+    - name : Applying changes to B
+      run: |
         echo "Now pushing it"
-        git push origin feature        
+        git push origin feature 
 
     - name: Push Changes to Repository B
       uses: actions/checkout@v2
