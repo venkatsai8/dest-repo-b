@@ -31,12 +31,14 @@ jobs:
         git remote -v
         git fetch source
         git pull source features
+        git cherry-pick HEAD
+        git push origin feature
         
 
     - name: Apply Changes to Repository B
       run: |
-        git cherry-pick HEAD
-        git push origin feature
+        git remote -v
+        
 
     - name: Push Changes to Repository B
       uses: actions/checkout@v2
