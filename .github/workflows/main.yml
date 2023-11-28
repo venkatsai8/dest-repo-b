@@ -46,7 +46,7 @@ jobs:
         git fetch source
         echo "Now pulling the features source branch from source"
         git pull source features --allow-unrelated-histories
-        git cherry-pick HEAD
+        git cherry-pick -m 1 HEAD
         
     - name : Applying changes to B
       run: |
