@@ -36,7 +36,7 @@ jobs:
 
     - name: Apply Changes to Repository B
       run: |
-        cd dest-repo-b
+        #cd dest-repo-b
         git cherry-pick HEAD
         git push origin feature
 
