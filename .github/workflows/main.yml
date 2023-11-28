@@ -37,7 +37,7 @@ jobs:
         git config --global user.name "venkatsai8"
         git config --global --list
         echo "Adding the source remote repo"
-        git remote add source git@github.com:venkatsai8/source-repo-a.git
+        git remote add source https://github.com/venkatsai8/source-repo-a.git
         echo "Again checking the remote version"
         git remote -v
         echo "Fetchig the source data first of soruce repo"
@@ -45,14 +45,7 @@ jobs:
         echo "Now pulling the features source branch from source"
         git pull --allow-unrelated-histories  source features
         echo "Now pushing it"
-        git push origin feature
-
-        
-
-    - name: Apply Changes to Repository B
-      run: |
-        git remote -v
-        
+        git push origin feature        
 
     - name: Push Changes to Repository B
       uses: actions/checkout@v2
