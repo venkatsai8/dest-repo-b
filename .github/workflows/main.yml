@@ -24,10 +24,8 @@ jobs:
 
     - name: Fetch Changes from Repository A
       run: |
-        echo "Cloning the destination repo"
-        git clone git@github.com:venkatsai8/dest-repo-b.git
         echo "changing to directory of dest repo"
-        cd dest-repo-b/
+        cd dest-repo-b
         echo "Changing to feature branch"
         git checkout feature
         echo "Checking remote version first"
@@ -35,6 +33,8 @@ jobs:
         echo "fetching the origin first"
         git fetch origin
         echo "checking username and email"
+        git config --global user.email "natrajsai7@gmail.com"
+        git config --global user.name "venkatsai8"
         git config --global --list
         echo "Adding the source remote repo"
         git remote add source git@github.com:venkatsai8/source-repo-a.git
@@ -43,9 +43,7 @@ jobs:
         echo "Fetchig the source data first of soruce repo"
         git fetch source
         echo "Now pulling the features source branch from source"
-        git pull source features
-        echo "Doing cherry pick"
-        git cherry-pick HEAD
+        git pull --allow-unrelated-histories  source features
         echo "Now pushing it"
         git push origin feature
 
