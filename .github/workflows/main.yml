@@ -32,11 +32,10 @@ jobs:
         git remote -v
         git fetch source
         git pull source features
-        #git fetch origin ${{ github.event.pull_request.head.sha }}
+        
 
     - name: Apply Changes to Repository B
       run: |
-        #cd dest-repo-b
         git cherry-pick HEAD
         git push origin feature
 
