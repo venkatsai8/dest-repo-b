@@ -24,17 +24,31 @@ jobs:
 
     - name: Fetch Changes from Repository A
       run: |
-        cd dest-repo-b
-        git config pull.rebase false
-        git config --global user.email "natrajsai7@gmail.com"
-        git config --global user.name "venkatsai8"
+        echo "Cloning the destination repo"
+        git clone git@github.com:venkatsai8/dest-repo-b.git
+        echo "changing to directory of dest repo"
+        cd dest-repo-b/
+        echo "Changing to feature branch"
         git checkout feature
-        git remote add source https://github.com/venkatsai8/source-repo-a.git
+        echo "Checking remote version first"
         git remote -v
+        echo "fetching the origin first"
+        git fetch origin
+        echo "checking username and email"
+        git config --global --list
+        echo "Adding the source remote repo"
+        git remote add source git@github.com:venkatsai8/source-repo-a.git
+        echo "Again checking the remote version"
+        git remote -v
+        echo "Fetchig the source data first of soruce repo"
         git fetch source
-        git pull --allow-unrelated-histories source features
-        #git cherry-pick --skip
+        echo "Now pulling the features source branch from source"
+        git pull source features
+        echo "Doing cherry pick"
+        git cherry-pick HEAD
+        echo "Now pushing it"
         git push origin feature
+
         
 
     - name: Apply Changes to Repository B
