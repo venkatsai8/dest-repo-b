@@ -26,6 +26,7 @@ jobs:
       run: |
         echo "changing to directory of dest repo"
         cd dest-repo-b
+        git config pull.rebase false
         echo "Changing to feature branch"
         git checkout feature
         echo "Checking remote version first"
