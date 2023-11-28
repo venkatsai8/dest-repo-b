@@ -32,9 +32,9 @@ jobs:
         git remote add source https://github.com/venkatsai8/source-repo-a.git
         git remote -v
         git fetch source
-        #git pull --allow-unrelated-histories source features
-        git cherry-pick --skip
-        git push origin feature
+        git pull  source features
+        #git cherry-pick --skip
+        #git push origin feature
         
 
     - name: Apply Changes to Repository B
