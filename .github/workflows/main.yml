@@ -25,6 +25,7 @@ jobs:
     - name: Fetch Changes from Repository A
       run: |
         cd dest-repo-b
+        git config pull.rebase false
         git checkout feature
         git remote add source https://github.com/venkatsai8/source-repo-a.git
         git remote -v
