@@ -26,6 +26,8 @@ jobs:
       run: |
         cd dest-repo-b
         git config pull.rebase false
+        git config --global user.email "natrajsai7@gmail.com"
+        git config --global user.name "venkatsai8"
         git checkout feature
         git remote add source https://github.com/venkatsai8/source-repo-a.git
         git remote -v
