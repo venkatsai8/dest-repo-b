@@ -52,6 +52,7 @@ jobs:
       run: |
         echo "Now pushing it"
         git push origin feature 
+        git remote -v
 
     - name: Push Changes to Repository B
       uses: actions/checkout@v2
