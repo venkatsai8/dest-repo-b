@@ -3,7 +3,7 @@ name: Sync Repository A to Repository B
 on:
  push:
     branches:
-      - master
+      - feature
 
 jobs:
  sync:
