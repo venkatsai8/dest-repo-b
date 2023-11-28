@@ -33,7 +33,7 @@ jobs:
         git remote -v
         git fetch source
         #git pull --allow-unrelated-histories source features
-        git cherry-pick HEAD
+        git cherry-pick 
         git push origin feature
         
 
